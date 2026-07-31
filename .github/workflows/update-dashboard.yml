@@ -1,0 +1,43 @@
+name: Update Dashboard
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"   # setiap 5 menit
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Packages
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Dashboard
+        run: |
+          python dashboard.py
+
+      - name: Commit HTML
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add dashboard_wisata_larantuka.html
+
+          git diff --cached --quiet || (
+            git commit -m "Auto Update Dashboard"
+            git push
+          )

@@ -1,0 +1,10 @@
+numpy
+pandas
+folium
+scikit-learn
+matplotlib
+requests
+openpyxl
+gspread
+google-auth
+gspread-dataframe

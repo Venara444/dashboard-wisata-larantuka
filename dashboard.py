@@ -54,7 +54,6 @@ from sklearn.metrics import (
     classification_report
 )
 
-from IPython.display import HTML, IFrame, display
 
 """## Step 2 — Ambil Data dari Google Sheets (Google Forms)
 
@@ -923,12 +922,17 @@ print(f"Dashboard tersimpan sebagai: {OUTPUT_FILE}")
 # ==========================================================
 
 # Tampilkan langsung di dalam notebook
-display(IFrame(src=OUTPUT_FILE, width="100%", height=900))
+
 
 # Download file HTML ke komputer (khusus di Google Colab)
 try:
     from google.colab import files
     files.download(OUTPUT_FILE)
-except Exception as e:
-    print("Bukan environment Google Colab, lewati proses download otomatis:", e)
+except:
+    print("Bukan Google Colab")
+OUTPUT_FILE = "dashboard_wisata_larantuka.html"
 
+with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+    f.write(final_html)
+
+print("Dashboard berhasil dibuat.")

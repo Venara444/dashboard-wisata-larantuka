@@ -909,7 +909,7 @@ print("folium_script =", len(folium_script))
 
 print("folium_body preview:")
 print(folium_body[:300])
-OUTPUT_FILE = "dashboard_wisata_larantuka.html"
+OUTPUT_FILE = "index.html"
 with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
     f.write(final_html)
 
@@ -930,7 +930,7 @@ try:
     files.download(OUTPUT_FILE)
 except:
     print("Bukan Google Colab")
-OUTPUT_FILE = "dashboard_wisata_larantuka.html"
+OUTPUT_FILE = "index.html"
 
 with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
     f.write(final_html)

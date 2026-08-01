@@ -397,15 +397,17 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
 .app-header h1{margin:0;font-size:19px;display:flex;align-items:center;gap:8px;}
 .app-header p{margin:0;font-size:12.5px;color:var(--muted);}
 .header-link{
-  margin-top:6px;
-  font-size:13px;
+  margin-top:4px;
+  font-size:11px;
+  font-style:italic;
   color:var(--muted);
 }
 
 .header-link a{
   color:#2563eb;
   text-decoration:none;
-  font-weight:600;
+  font-style:italic;
+  font-weight:500;
 }
 
 .header-link a:hover{
@@ -513,12 +515,12 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
 <div class="app">
 
   <header class="app-header">
-  <h1>&#128205; Dashboard Wisata Kelurahan Larantuka</h1>
+  <h1>&#128205; Wisata Kelurahan Larantuka</h1>
 
   <p>Analisis Machine Learning &amp; Potensi Pengembangan</p>
 
   <div class="header-link">
-    📝 Masukkan lokasi wisata dan UMKM terbaru melalui
+    Masukkan lokasi wisata dan UMKM terbaru melalui
     <a href="https://forms.gle/SESEFeYtoSr4nPxX7"
        target="_blank">
        Google Form

@@ -371,7 +371,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard Wisata Kelurahan Larantuka</title>
+<title>Wisata Kelurahan Larantuka</title>
 __FOLIUM_HEAD__
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
@@ -396,6 +396,21 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
   padding:14px 22px;display:flex;flex-direction:column;gap:2px;}
 .app-header h1{margin:0;font-size:19px;display:flex;align-items:center;gap:8px;}
 .app-header p{margin:0;font-size:12.5px;color:var(--muted);}
+.header-link{
+  margin-top:6px;
+  font-size:13px;
+  color:var(--muted);
+}
+
+.header-link a{
+  color:#2563eb;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.header-link a:hover{
+  text-decoration:underline;
+}
 
 .sidebar-left{grid-area:sidebar;background:#fff;border-right:1px solid var(--line);
   overflow-y:auto;padding:16px;}
@@ -498,9 +513,18 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
 <div class="app">
 
   <header class="app-header">
-    <h1>&#128205; Dashboard Wisata Kelurahan Larantuka</h1>
-    <p>Analisis Machine Learning &amp; Potensi Pengembangan</p>
-  </header>
+  <h1>&#128205; Dashboard Wisata Kelurahan Larantuka</h1>
+
+  <p>Analisis Machine Learning &amp; Potensi Pengembangan</p>
+
+  <div class="header-link">
+    📝 Masukkan lokasi wisata dan UMKM terbaru melalui
+    <a href="https://forms.gle/SESEFeYtoSr4nPxX7"
+       target="_blank">
+       Google Form
+    </a>
+  </div>
+</header>
 
   <aside class="sidebar-left">
     <div class="stat-grid">

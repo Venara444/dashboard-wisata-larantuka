@@ -499,6 +499,37 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
 .app-footer{grid-area:footer;background:#fff;border-top:1px solid var(--line);
   text-align:center;font-size:11.5px;color:var(--muted);padding:9px;}
 
+/* Style untuk label tooltip */
+.custom-label {
+    font-size: 10px;
+    font-weight: 600;
+    background: rgba(255,255,255,0.85);
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    white-space: nowrap;
+    color: #1f2937;
+    pointer-events: none;
+}
+.custom-label-rambu {
+    font-size: 9px;
+    font-weight: 600;
+    background: rgba(255, 165, 0, 0.15);
+    padding: 1px 5px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 165, 0, 0.3);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    white-space: nowrap;
+    color: #b45309;
+    pointer-events: none;
+}
+.leaflet-tooltip {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
 @media (max-width:980px){
   .app{grid-template-columns:1fr;grid-template-rows:auto auto auto auto auto;
     grid-template-areas:"header" "sidebar" "main" "legend" "footer";height:auto;}
@@ -668,7 +699,7 @@ __CUSTOM_JS__
 
 
 # ==========================================================
-# STEP 11 - CUSTOM JAVASCRIPT (DENGAN DUKUNGAN RAMBU 🚧)
+# STEP 11 - CUSTOM JAVASCRIPT (DENGAN LABEL NAMA LOKASI)
 # ==========================================================
 
 CUSTOM_JS_TEMPLATE = """
@@ -702,6 +733,7 @@ CUSTOM_JS_TEMPLATE = """
   var clusterPalette = ["#9b59b6", "#16a085", "#e67e22", "#2c3e50", "#f1c40f", "#c0392b"];
 
   var markerLayer = L.layerGroup().addTo(mapObj);
+  var labelLayer = L.layerGroup().addTo(mapObj);
   var heatLayer = null;
   var selectedPin = null;
   var currentMode = "normal";
@@ -717,12 +749,12 @@ CUSTOM_JS_TEMPLATE = """
     search: ""
   };
 
-  // IKON KHUSUS UNTUK RAMBU
+  // IKON KHUSUS UNTUK RAMBU - UKURAN LEBIH KECIL
   var rambuIcon = L.divIcon({
     className: "rambu-marker",
-    html: '<div style="font-size:36px; text-shadow: 0 2px 8px rgba(0,0,0,0.4); line-height:1; text-align:center;">🚧</div>',
-    iconSize: [36, 36],
-    iconAnchor: [18, 36]
+    html: '<div style="font-size:24px; text-shadow: 0 1px 4px rgba(0,0,0,0.3); line-height:1; text-align:center;">🚧</div>',
+    iconSize: [24, 24],
+    iconAnchor: [12, 24]
   });
 
   function radiusFromReview(n){
@@ -759,8 +791,16 @@ CUSTOM_JS_TEMPLATE = """
     iconAnchor: [15, 42]
   });
 
+  // Fungsi untuk membuat label dengan styling
+  function createLabel(place, isRambu) {
+    var className = isRambu ? 'custom-label-rambu' : 'custom-label';
+    var labelText = place.nama.length > 20 ? place.nama.substring(0, 18) + '...' : place.nama;
+    return '<div class="' + className + '">' + labelText + '</div>';
+  }
+
   function renderMarkers(){
     markerLayer.clearLayers();
+    labelLayer.clearLayers();
     
     if (currentMode === "heat") {
       if (heatLayer) { mapObj.removeLayer(heatLayer); heatLayer = null; }
@@ -770,11 +810,21 @@ CUSTOM_JS_TEMPLATE = """
       if (pts.length > 0) {
         heatLayer = L.heatLayer(pts, { radius: 25, blur: 20, maxZoom: 17 }).addTo(mapObj);
       }
-      // Tetap tampilkan rambu sebagai marker terpisah
+      // Tetap tampilkan rambu sebagai marker terpisah + label
       placesData.filter(function(p){ return passesFilter(p) && p.is_rambu; }).forEach(function(place){
         var marker = L.marker([place.lat, place.lon], { icon: rambuIcon });
         marker.on("click", function(){ selectPlace(place); });
         marker.addTo(markerLayer);
+        
+        // Label untuk rambu
+        var labelDiv = L.divIcon({
+          className: '',
+          html: createLabel(place, true),
+          iconSize: [0, 0],
+          iconAnchor: [0, 0]
+        });
+        var labelMarker = L.marker([place.lat + 0.00005, place.lon], { icon: labelDiv, interactive: false });
+        labelMarker.addTo(labelLayer);
       });
       return;
     } else if (heatLayer) {
@@ -787,6 +837,16 @@ CUSTOM_JS_TEMPLATE = """
         var marker = L.marker([place.lat, place.lon], { icon: rambuIcon });
         marker.on("click", function(){ selectPlace(place); });
         marker.addTo(markerLayer);
+        
+        // Label untuk rambu (sedikit di atas marker)
+        var labelDiv = L.divIcon({
+          className: '',
+          html: createLabel(place, true),
+          iconSize: [0, 0],
+          iconAnchor: [0, 0]
+        });
+        var labelMarker = L.marker([place.lat + 0.00005, place.lon], { icon: labelDiv, interactive: false });
+        labelMarker.addTo(labelLayer);
       } else {
         var marker = L.circleMarker([place.lat, place.lon], {
           radius: radiusFromReview(place.jumlah_rating),
@@ -797,6 +857,16 @@ CUSTOM_JS_TEMPLATE = """
         });
         marker.on("click", function(){ selectPlace(place); });
         marker.addTo(markerLayer);
+        
+        // Label untuk wisata (sedikit di atas marker)
+        var labelDiv = L.divIcon({
+          className: '',
+          html: createLabel(place, false),
+          iconSize: [0, 0],
+          iconAnchor: [0, 0]
+        });
+        var labelMarker = L.marker([place.lat + 0.00008, place.lon], { icon: labelDiv, interactive: false });
+        labelMarker.addTo(labelLayer);
       }
     });
   }
@@ -819,7 +889,6 @@ CUSTOM_JS_TEMPLATE = """
       document.getElementById("ic-rating").textContent = "🚧";
       document.getElementById("ic-review").textContent = "(Rambu / Plang)";
       document.getElementById("ic-stars").textContent = "🚧";
-      // Sembunyikan bagian ML
       document.getElementById("ic-popularitas-row").style.display = "none";
       document.getElementById("ic-popularitas-row-value").style.display = "none";
       document.getElementById("ic-potensi-row").style.display = "none";
@@ -833,7 +902,6 @@ CUSTOM_JS_TEMPLATE = """
       var stars = "";
       for (var i = 0; i < 5; i++) stars += (i < full ? "\\u2605" : "\\u2606");
       document.getElementById("ic-stars").textContent = stars;
-      // Tampilkan bagian ML
       document.getElementById("ic-popularitas-row").style.display = "";
       document.getElementById("ic-popularitas-row-value").style.display = "";
       document.getElementById("ic-potensi-row").style.display = "";

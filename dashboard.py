@@ -716,11 +716,15 @@ CUSTOM_JS_TEMPLATE = """
   }
 
   function colorFor(place){
-    if (currentMode === "cluster") {
-      return clusterPalette[place.cluster % clusterPalette.length];
-    }
-    return potensiColor[place.potensi_pengembangan] || "#3b82f6";
+
+  // Mode Cluster
+  if (currentMode === "cluster") {
+    return clusterPalette[place.cluster % clusterPalette.length];
   }
+
+  // Mode Peta Dasar → warna berdasarkan kategori
+  return kategoriColor[place.kategori] || "#95a5a6";
+}
 
   function passesFilter(place){
     if (!state.kategori.has(place.kategori)) return false;

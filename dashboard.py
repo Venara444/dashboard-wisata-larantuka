@@ -252,9 +252,9 @@ top5_rating = (
     .to_dict("records")
 )
 top5_review = (
-    df.sort_values("jumlah_rating", ascending=False)
-    .head(5)[["nama", "jumlah_rating"]]
-    .to_dict("records")
+    df.tail(5)
+      .iloc[::-1]
+      .to_dict("records")
 )
 
 kategori_list = sorted(df["kategori"].unique().tolist())
@@ -356,14 +356,20 @@ def build_top5_rating(rows):
 
 
 def build_top5_review(rows):
-    items = []
+
+    html = []
+
     for i, r in enumerate(rows, start=1):
-        items.append(
-            f'<div class="top5-row"><span class="top5-rank">{i}.</span>'
-            f'<span class="top5-name">{r["nama"]}</span>'
-            f'<span class="top5-value">{r["jumlah_rating"]}</span></div>'
+        html.append(
+            f'''
+            <div class="top5-row">
+                <span class="top5-rank">{i}.</span>
+                <span class="top5-name">{r["nama"]}</span>
+            </div>
+            '''
         )
-    return "".join(items)
+
+    return "".join(html)
 
 
 HTML_TEMPLATE = """<!DOCTYPE html>
@@ -622,7 +628,7 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
         __TOP5_RATING_HTML__
       </div>
       <div class="chart-card">
-        <h3>Top 5 Review Terbanyak</h3>
+        <h3>Direkomendasikan</h3>
         __TOP5_REVIEW_HTML__
       </div>
     </div>

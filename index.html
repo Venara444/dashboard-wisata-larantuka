@@ -20,7 +20,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_565260ead9e04910550f05d7a8ce1573 {
+                #map_0749cebc6006388f661771a3b5cbc8ce {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -212,10 +212,10 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
 
   <aside class="sidebar-left">
     <div class="stat-grid">
-      <div class="stat-card"><div class="label">&#128205; Total Wisata</div><div class="value">8</div></div>
-      <div class="stat-card"><div class="label">&#11088; Rata-rata Rating</div><div class="value">2.89</div></div>
-      <div class="stat-card"><div class="label">&#128172; Total Review</div><div class="value">477</div></div>
-      <div class="stat-card"><div class="label">&#128197; Update Terakhir</div><div class="value" style="font-size:13px;">01 Aug 2026  00:36</div></div>
+      <div class="stat-card"><div class="label">&#128205; Total Wisata</div><div class="value">11</div></div>
+      <div class="stat-card"><div class="label">&#11088; Rata-rata Rating</div><div class="value">2.9</div></div>
+      <div class="stat-card"><div class="label">&#128172; Total Review</div><div class="value">526</div></div>
+      <div class="stat-card"><div class="label">&#128197; Update Terakhir</div><div class="value" style="font-size:13px;">01 Aug 2026  11:03</div></div>
     </div>
 
     <div class="section-title">Filter Kategori</div>
@@ -247,7 +247,7 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
     <div class="map-wrap">
       
     
-            <div class="folium-map" id="map_565260ead9e04910550f05d7a8ce1573" ></div>
+            <div class="folium-map" id="map_0749cebc6006388f661771a3b5cbc8ce" ></div>
         
 
       <div class="search-box">
@@ -271,22 +271,30 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
       <div class="info-card" id="info-card">
         <button class="close-btn" id="info-card-close">&#10005;</button>
         <h2 id="ic-nama"></h2>
-        <div class="rating-row">
+        <div class="rating-row" id="ic-rating-row">
           <span class="stars" id="ic-stars"></span>
           <span class="rating-num" id="ic-rating"></span>
           <span id="ic-review" style="color:var(--muted)"></span>
         </div>
-        <div class="field-row">Kategori</div>
-        <div><span class="kat-badge" id="ic-kategori"></span></div>
+        <div id="ic-kategori-row">
+          <div class="field-row">Kategori</div>
+          <div><span class="kat-badge" id="ic-kategori"></span></div>
+        </div>
 
-        <div class="field-row">Prediksi Popularitas (Machine Learning)</div>
-        <div class="field-value"><span class="pill" id="ic-popularitas"></span></div>
+        <div id="ic-popularitas-row">
+          <div class="field-row">Prediksi Popularitas (Machine Learning)</div>
+          <div class="field-value"><span class="pill" id="ic-popularitas"></span></div>
+        </div>
 
-        <div class="field-row">Potensi Pengembangan</div>
-        <div class="field-value"><span class="pill" id="ic-potensi"></span></div>
+        <div id="ic-potensi-row">
+          <div class="field-row">Potensi Pengembangan</div>
+          <div class="field-value"><span class="pill" id="ic-potensi"></span></div>
+        </div>
 
-        <div class="field-row">Cluster K-Means</div>
-        <div class="field-value"><span class="pill" id="ic-cluster" style="background:var(--purple-light);color:var(--purple)"></span></div>
+        <div id="ic-cluster-row">
+          <div class="field-row">Cluster K-Means</div>
+          <div class="field-value"><span class="pill" id="ic-cluster" style="background:var(--purple-light);color:var(--purple)"></span></div>
+        </div>
 
         <div class="coord">Koordinat: <span id="ic-koordinat"></span></div>
         <img id="ic-img" src="" alt="foto tempat wisata">
@@ -299,7 +307,7 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
         <h3>Jumlah Wisata per Kategori</h3>
         <div class="pie-inner">
           <canvas id="pie-chart"></canvas>
-          <div class="legend-list"><div class="legend-row"><span class="legend-dot" style="background:#8e44ad"></span><span class="legend-label">Religi</span><span class="legend-value">5 (62.5%)</span></div><div class="legend-row"><span class="legend-dot" style="background:#3498db"></span><span class="legend-label">Umum</span><span class="legend-value">1 (12.5%)</span></div><div class="legend-row"><span class="legend-dot" style="background:#27ae60"></span><span class="legend-label">Alam</span><span class="legend-value">1 (12.5%)</span></div><div class="legend-row"><span class="legend-dot" style="background:#e74c3c"></span><span class="legend-label">Kuliner</span><span class="legend-value">1 (12.5%)</span></div></div>
+          <div class="legend-list"><div class="legend-row"><span class="legend-dot" style="background:#8e44ad"></span><span class="legend-label">Religi</span><span class="legend-value">5 (45.5%)</span></div><div class="legend-row"><span class="legend-dot" style="background:#3498db"></span><span class="legend-label">Umum</span><span class="legend-value">3 (27.3%)</span></div><div class="legend-row"><span class="legend-dot" style="background:#27ae60"></span><span class="legend-label">Alam</span><span class="legend-value">2 (18.2%)</span></div><div class="legend-row"><span class="legend-dot" style="background:#e74c3c"></span><span class="legend-label">Kuliner</span><span class="legend-value">1 (9.1%)</span></div></div>
         </div>
       </div>
       <div class="chart-card">
@@ -307,6 +315,11 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
         
             <div class="top5-row">
                 <span>Lamaholot Dive & Tour</span>
+                <span class="top5-value">&#9733; 5.0</span>
+            </div>
+            
+            <div class="top5-row">
+                <span>Kawasan Perlindungan Terumbu Karang Larantuka</span>
                 <span class="top5-value">&#9733; 5.0</span>
             </div>
             
@@ -325,38 +338,33 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
                 <span class="top5-value">&#9733; 4.5</span>
             </div>
             
-            <div class="top5-row">
-                <span>HOTEL LESTARI LARANTUKA</span>
-                <span class="top5-value">&#9733; 4.0</span>
-            </div>
-            
       </div>
       <div class="chart-card">
         <h3>Direkomendasikan</h3>
         
             <div class="top5-row">
                 <span class="top5-rank">1.</span>
-                <span class="top5-name">Tori Maestro De Campo</span>
+                <span class="top5-name">Pokmaswas</span>
             </div>
             
             <div class="top5-row">
                 <span class="top5-rank">2.</span>
-                <span class="top5-name">Tori Tuan Trewa</span>
+                <span class="top5-name">Lapangan Raja Manuk</span>
             </div>
             
             <div class="top5-row">
                 <span class="top5-rank">3.</span>
-                <span class="top5-name">Kapela St. Yosef</span>
+                <span class="top5-name">Kawasan Perlindungan Terumbu Karang Larantuka</span>
             </div>
             
             <div class="top5-row">
                 <span class="top5-rank">4.</span>
-                <span class="top5-name">Kapela Katolik Tuan Ma Larantuka</span>
+                <span class="top5-name">Tori Maestro De Campo</span>
             </div>
             
             <div class="top5-row">
                 <span class="top5-rank">5.</span>
-                <span class="top5-name">Lamaholot Dive & Tour</span>
+                <span class="top5-name">Tori Tuan Trewa</span>
             </div>
             
       </div>
@@ -390,6 +398,11 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
       <div class="legend-entry"><span class="legend-swatch" style="background:#9b59b6"></span>
         <div><div class="t">Review</div><div class="d">Ukuran marker = jumlah review</div></div></div>
     </div>
+    <div class="legend-block">
+      <h4>&#128679; Rambu / Plang</h4>
+      <div class="legend-entry"><span class="legend-swatch" style="background:#f59e0b;font-size:16px;">&#128679;</span>
+        <div><div class="t">Lokasi Rambu</div><div class="d">Ikon rambu/plang petunjuk</div></div></div>
+    </div>
   </aside>
 
   <footer class="app-footer">Sumber Data: Google Forms (Real-time) &nbsp;|&nbsp; Analisis: Machine Learning (Random Forest) &amp; K-Means Clustering</footer>
@@ -398,10 +411,10 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
 <script>
 
     
-            var map_565260ead9e04910550f05d7a8ce1573 = L.map(
-                "map_565260ead9e04910550f05d7a8ce1573",
+            var map_0749cebc6006388f661771a3b5cbc8ce = L.map(
+                "map_0749cebc6006388f661771a3b5cbc8ce",
                 {
-                    center: [-8.346672898772464, 122.97831873389384],
+                    center: [-8.346556806441408, 122.97855164793937],
                     crs: L.CRS.EPSG3857,
                     ...{
   "zoom": 15,
@@ -416,7 +429,7 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
 
         
     
-            var tile_layer_d2f21c8e5eae26b5f039c78ede2ae72c = L.tileLayer(
+            var tile_layer_35d19d64f54236d43b21f78e6f705699 = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -433,7 +446,7 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
             );
         
     
-            tile_layer_d2f21c8e5eae26b5f039c78ede2ae72c.addTo(map_565260ead9e04910550f05d7a8ce1573);
+            tile_layer_35d19d64f54236d43b21f78e6f705699.addTo(map_0749cebc6006388f661771a3b5cbc8ce);
         
     
             L.control.fullscreen(
@@ -443,12 +456,13 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
   "titleCancel": "Keluar layar penuh",
   "forceSeparateButton": false,
 }
-            ).addTo(map_565260ead9e04910550f05d7a8ce1573);
+            ).addTo(map_0749cebc6006388f661771a3b5cbc8ce);
         
 
 (function(){
-  var placesData = [{"nama": "The Prayer Park on Fatima Hill", "lat": -8.343028666791067, "lon": 122.97409550805575, "rating": 4.8, "jumlah_rating": 283, "kategori": "Religi", "gambar_url": "https://drive.google.com/thumbnail?id=1Ajd5v8hP9qC1l__UZHTiQyKoPzhB0LcU&sz=w1000", "prediksi_popularitas": "Sangat Populer", "potensi_pengembangan": "Dipertahankan", "cluster": 2}, {"nama": "Taman Reinha Rosari", "lat": -8.34745708171033, "lon": 122.97719634915876, "rating": 4.5, "jumlah_rating": 100, "kategori": "Religi", "gambar_url": "https://drive.google.com/thumbnail?id=1tJWRc_4nlkMMKzmgfCBZsJkdeyw18Lf8&sz=w1000", "prediksi_popularitas": "Sangat Populer", "potensi_pengembangan": "Dipertahankan", "cluster": 3}, {"nama": "HOTEL LESTARI LARANTUKA", "lat": -8.347426231361057, "lon": 122.97558791934667, "rating": 4.0, "jumlah_rating": 1, "kategori": "Umum", "gambar_url": "https://drive.google.com/thumbnail?id=1_Cf1qPnMAY-wO6l9hjYOD5iC8vLTZzd9&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Potensial", "cluster": 0}, {"nama": "Lamaholot Dive & Tour", "lat": -8.347724123210996, "lon": 122.97835858085445, "rating": 5.0, "jumlah_rating": 29, "kategori": "Alam", "gambar_url": "https://drive.google.com/thumbnail?id=1idr_fZ3JRy9iOmGxjn60Hnfz_zQsZ0HH&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Sangat Potensial", "cluster": 3}, {"nama": "Kapela Katolik Tuan Ma Larantuka", "lat": -8.347181087106259, "lon": 122.98114301373509, "rating": 4.8, "jumlah_rating": 64, "kategori": "Religi", "gambar_url": "https://drive.google.com/thumbnail?id=13_y3eKEedcnVkodNGEq_dIT67d0EqVRB&sz=w1000", "prediksi_popularitas": "Sangat Populer", "potensi_pengembangan": "Sangat Potensial", "cluster": 3}, {"nama": "Kapela St. Yosef", "lat": -8.3464015, "lon": 122.9796639, "rating": 0.0, "jumlah_rating": 0, "kategori": "Religi", "gambar_url": "https://drive.google.com/thumbnail?id=1-qh_xU-wF4kiNlUnHCt21QRmKXBjuwXJ&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Direkomendasikan Kunjungan", "cluster": 1}, {"nama": "Tori Tuan Trewa", "lat": -8.3468414, "lon": 122.979738, "rating": 0.0, "jumlah_rating": 0, "kategori": "Religi", "gambar_url": "https://drive.google.com/thumbnail?id=1ENhLnlrJgFuS84PC1iCo2_Pc4rvBUmAU&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Direkomendasikan Kunjungan", "cluster": 1}, {"nama": "Tori Maestro De Campo", "lat": -8.3473231, "lon": 122.9807666, "rating": 0.0, "jumlah_rating": 0, "kategori": "Kuliner", "gambar_url": "https://drive.google.com/thumbnail?id=1U8Xekt_SizircAHxxlKDAxaS634kE32H&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Direkomendasikan Kunjungan", "cluster": 1}];
-  var mapObj = window["map_565260ead9e04910550f05d7a8ce1573"];
+  var placesData = [{"nama": "The Prayer Park on Fatima Hill", "lat": -8.343028666791067, "lon": 122.97409550805575, "rating": 4.8, "jumlah_rating": 283, "kategori": "Religi", "gambar_url": "https://drive.google.com/thumbnail?id=1Ajd5v8hP9qC1l__UZHTiQyKoPzhB0LcU&sz=w1000", "prediksi_popularitas": "Sangat Populer", "potensi_pengembangan": "Dipertahankan", "cluster": 2}, {"nama": "Taman Reinha Rosari", "lat": -8.34745708171033, "lon": 122.97719634915876, "rating": 4.5, "jumlah_rating": 100, "kategori": "Religi", "gambar_url": "https://drive.google.com/thumbnail?id=1tJWRc_4nlkMMKzmgfCBZsJkdeyw18Lf8&sz=w1000", "prediksi_popularitas": "Sangat Populer", "potensi_pengembangan": "Dipertahankan", "cluster": 0}, {"nama": "HOTEL LESTARI LARANTUKA", "lat": -8.347426231361057, "lon": 122.97558791934667, "rating": 4.0, "jumlah_rating": 1, "kategori": "Umum", "gambar_url": "https://drive.google.com/thumbnail?id=1_Cf1qPnMAY-wO6l9hjYOD5iC8vLTZzd9&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Potensial", "cluster": 3}, {"nama": "Lamaholot Dive & Tour", "lat": -8.347724123210996, "lon": 122.97835858085445, "rating": 5.0, "jumlah_rating": 29, "kategori": "Alam", "gambar_url": "https://drive.google.com/thumbnail?id=1idr_fZ3JRy9iOmGxjn60Hnfz_zQsZ0HH&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Sangat Potensial", "cluster": 0}, {"nama": "Kapela Katolik Tuan Ma Larantuka", "lat": -8.347181087106259, "lon": 122.98114301373509, "rating": 4.8, "jumlah_rating": 64, "kategori": "Religi", "gambar_url": "https://drive.google.com/thumbnail?id=13_y3eKEedcnVkodNGEq_dIT67d0EqVRB&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Sangat Potensial", "cluster": 0}, {"nama": "Kapela St. Yosef", "lat": -8.3464015, "lon": 122.9796639, "rating": 0.0, "jumlah_rating": 0, "kategori": "Religi", "gambar_url": "https://drive.google.com/thumbnail?id=1-qh_xU-wF4kiNlUnHCt21QRmKXBjuwXJ&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Direkomendasikan Kunjungan", "cluster": 1}, {"nama": "Tori Tuan Trewa", "lat": -8.3468414, "lon": 122.979738, "rating": 0.0, "jumlah_rating": 0, "kategori": "Religi", "gambar_url": "https://drive.google.com/thumbnail?id=1ENhLnlrJgFuS84PC1iCo2_Pc4rvBUmAU&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Direkomendasikan Kunjungan", "cluster": 1}, {"nama": "Tori Maestro De Campo", "lat": -8.3473231, "lon": 122.9807666, "rating": 0.0, "jumlah_rating": 0, "kategori": "Kuliner", "gambar_url": "https://drive.google.com/thumbnail?id=1U8Xekt_SizircAHxxlKDAxaS634kE32H&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Direkomendasikan Kunjungan", "cluster": 1}, {"nama": "Kawasan Perlindungan Terumbu Karang Larantuka", "lat": -8.3480953, "lon": 122.9786131, "rating": 5.0, "jumlah_rating": 43, "kategori": "Alam", "gambar_url": "https://drive.google.com/thumbnail?id=1ScqiYmRaY__4Zvi467_SqNiwQO1NZhFg&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Sangat Potensial", "cluster": 0}, {"nama": "Lapangan Raja Manuk", "lat": -8.3452631, "lon": 122.979399, "rating": 3.8, "jumlah_rating": 6, "kategori": "Umum", "gambar_url": "https://drive.google.com/thumbnail?id=1rZ8tGdJLa1F-60iJ3Gfg6ZLCPGROl_fm&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Direkomendasikan Kunjungan", "cluster": 3}, {"nama": "Pokmaswas", "lat": -8.3478787, "lon": 122.9785611, "rating": 0.0, "jumlah_rating": 0, "kategori": "Umum", "gambar_url": "https://drive.google.com/thumbnail?id=1izO8SbSPMprMyvWGOSvswrh_llnVfJJe&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Direkomendasikan Kunjungan", "cluster": 1}];
+  var rambuData = [{"nama": "Rambu Peringatan Area Rawan Banjir", "lat": -8.344074, "lon": 122.978567, "gambar_url": "https://drive.google.com/thumbnail?id=1duLF8JnX5udMcjyf1Rm6HJbuPQ0yk7tb&sz=w1000"}, {"nama": "Rambu Jalur Evakuasi", "lat": -8.34752, "lon": 122.978139, "gambar_url": "https://drive.google.com/thumbnail?id=1qQSuOHSfKCyIJPUYNATwlS9ZQVdKJaBY&sz=w1000"}, {"nama": "Titik Kumpul", "lat": -8.345581, "lon": 122.979894, "gambar_url": "https://drive.google.com/thumbnail?id=18jMl7EadvvvkYObkHgg4ePW4tgxQsFrk&sz=w1000"}];
+  var mapObj = window["map_0749cebc6006388f661771a3b5cbc8ce"];
 
   var potensiColor = {
     "Sangat Potensial": "#22c55e",
@@ -473,11 +487,19 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
   var clusterPalette = ["#9b59b6", "#16a085", "#e67e22", "#2c3e50", "#f1c40f", "#c0392b"];
 
   var markerLayer = L.layerGroup().addTo(mapObj);
+  var rambuLayer = L.layerGroup().addTo(mapObj);
   var heatLayer = null;
   var selectedPin = null;
   var currentMode = "normal";
 
   var maxReview = Math.max.apply(null, placesData.map(function(p){ return p.jumlah_rating; })) || 1;
+
+  var rambuIcon = L.icon({
+    iconUrl: "https://raw.githubusercontent.com/yourusername/yourrepo/main/assets/rambu.png",
+    iconSize: [36, 36],
+    iconAnchor: [18, 36],
+    popupAnchor: [0, -30]
+  });
 
   var state = {
     kategori: new Set(placesData.map(function(p){ return p.kategori; })),
@@ -493,15 +515,11 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
   }
 
   function colorFor(place){
-
-  // Mode Cluster
-  if (currentMode === "cluster") {
-    return clusterPalette[place.cluster % clusterPalette.length];
+    if (currentMode === "cluster") {
+      return clusterPalette[place.cluster % clusterPalette.length];
+    }
+    return kategoriColor[place.kategori] || "#95a5a6";
   }
-
-  // Mode Peta Dasar → warna berdasarkan kategori
-  return kategoriColor[place.kategori] || "#95a5a6";
-}
 
   function passesFilter(place){
     if (!state.kategori.has(place.kategori)) return false;
@@ -547,6 +565,28 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
     });
   }
 
+  function renderRambu(){
+    rambuLayer.clearLayers();
+    rambuData.forEach(function(r){
+      var marker = L.marker([r.lat, r.lon], { icon: rambuIcon });
+      marker.on("click", function(){ showRambu(r); });
+      marker.addTo(rambuLayer);
+    });
+  }
+
+  function showRambu(r){
+    document.getElementById("ic-nama").textContent = r.nama;
+    document.getElementById("ic-rating-row").style.display = "none";
+    document.getElementById("ic-kategori-row").style.display = "none";
+    document.getElementById("ic-popularitas-row").style.display = "none";
+    document.getElementById("ic-potensi-row").style.display = "none";
+    document.getElementById("ic-cluster-row").style.display = "none";
+    document.getElementById("ic-koordinat").textContent = r.lat.toFixed(6) + ", " + r.lon.toFixed(6);
+    document.getElementById("ic-img").src = r.gambar_url;
+    document.getElementById("ic-gmaps").href = "https://www.google.com/maps?q=" + r.lat + "," + r.lon;
+    document.getElementById("info-card").style.display = "block";
+  }
+
   function selectPlace(place){
     if (selectedPin) mapObj.removeLayer(selectedPin);
     selectedPin = L.marker([place.lat, place.lon], { icon: pinIcon, zIndexOffset: 1000 }).addTo(mapObj);
@@ -555,6 +595,12 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
   }
 
   function showInfoCard(place){
+    document.getElementById("ic-rating-row").style.display = "flex";
+    document.getElementById("ic-kategori-row").style.display = "block";
+    document.getElementById("ic-popularitas-row").style.display = "block";
+    document.getElementById("ic-potensi-row").style.display = "block";
+    document.getElementById("ic-cluster-row").style.display = "block";
+
     document.getElementById("ic-nama").textContent = place.nama;
     document.getElementById("ic-rating").textContent = place.rating.toFixed(1);
     document.getElementById("ic-review").textContent = "(" + place.jumlah_rating + " review)";
@@ -601,6 +647,7 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
     if (q.length === 0) {
       searchResults.style.display = "none";
       renderMarkers();
+      renderRambu();
       return;
     }
     var matches = placesData.filter(function(p){
@@ -611,6 +658,7 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
     }).join("");
     searchResults.style.display = matches.length ? "block" : "none";
     renderMarkers();
+    renderRambu();
   });
   searchResults.addEventListener("click", function(e){
     var el = e.target.closest(".search-item");
@@ -629,6 +677,7 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
       boxes.forEach(function(b){ b.checked = master.checked; });
       state[groupName] = master.checked ? new Set(allValues) : new Set();
       renderMarkers();
+      renderRambu();
     });
     container.querySelectorAll('input[type="checkbox"]:not(#' + masterId + ")").forEach(function(box){
       box.addEventListener("change", function(){
@@ -639,6 +688,7 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
         );
         master.checked = boxes.every(function(b){ return b.checked; });
         renderMarkers();
+        renderRambu();
       });
     });
   }
@@ -652,18 +702,20 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
     radio.addEventListener("change", function(){
       currentMode = this.value;
       renderMarkers();
+      renderRambu();
     });
   });
 
   document.getElementById("zoom-in").addEventListener("click", function(){ mapObj.zoomIn(); });
   document.getElementById("zoom-out").addEventListener("click", function(){ mapObj.zoomOut(); });
   document.getElementById("zoom-reset").addEventListener("click", function(){
-    mapObj.setView([-8.346672898772464, 122.97831873389384], 15);
+    mapObj.setView([-8.346556806441408, 122.97855164793937], 15);
   });
 
   renderMarkers();
+  renderRambu();
 
-  var kategoriCounts = {"Religi": 5, "Umum": 1, "Alam": 1, "Kuliner": 1};
+  var kategoriCounts = {"Religi": 5, "Umum": 3, "Alam": 2, "Kuliner": 1};
   var pieCanvas = document.getElementById("pie-chart");
   if (pieCanvas && window.Chart) {
     new Chart(pieCanvas.getContext("2d"), {

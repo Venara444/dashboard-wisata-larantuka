@@ -20,7 +20,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_a5f58a28af1e19d63c36ea33cef6bc20 {
+                #map_aaae38c1034f05a056ace30c58789b5b {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -183,6 +183,37 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
 .app-footer{grid-area:footer;background:#fff;border-top:1px solid var(--line);
   text-align:center;font-size:11.5px;color:var(--muted);padding:9px;}
 
+/* Style untuk label tooltip */
+.custom-label {
+    font-size: 10px;
+    font-weight: 600;
+    background: rgba(255,255,255,0.85);
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    white-space: nowrap;
+    color: #1f2937;
+    pointer-events: none;
+}
+.custom-label-rambu {
+    font-size: 9px;
+    font-weight: 600;
+    background: rgba(255, 165, 0, 0.15);
+    padding: 1px 5px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 165, 0, 0.3);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    white-space: nowrap;
+    color: #b45309;
+    pointer-events: none;
+}
+.leaflet-tooltip {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
 @media (max-width:980px){
   .app{grid-template-columns:1fr;grid-template-rows:auto auto auto auto auto;
     grid-template-areas:"header" "sidebar" "main" "legend" "footer";height:auto;}
@@ -242,7 +273,7 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
     <div class="map-wrap">
       
     
-            <div class="folium-map" id="map_a5f58a28af1e19d63c36ea33cef6bc20" ></div>
+            <div class="folium-map" id="map_aaae38c1034f05a056ace30c58789b5b" ></div>
         
 
       <div class="search-box">
@@ -398,8 +429,8 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
 <script>
 
     
-            var map_a5f58a28af1e19d63c36ea33cef6bc20 = L.map(
-                "map_a5f58a28af1e19d63c36ea33cef6bc20",
+            var map_aaae38c1034f05a056ace30c58789b5b = L.map(
+                "map_aaae38c1034f05a056ace30c58789b5b",
                 {
                     center: [-8.346556806441408, 122.97855164793934],
                     crs: L.CRS.EPSG3857,
@@ -416,7 +447,7 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
 
         
     
-            var tile_layer_cb413a0217238783ba05de4d810a3b17 = L.tileLayer(
+            var tile_layer_433c211ccda10061e533b198c9315fdf = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -433,7 +464,7 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
             );
         
     
-            tile_layer_cb413a0217238783ba05de4d810a3b17.addTo(map_a5f58a28af1e19d63c36ea33cef6bc20);
+            tile_layer_433c211ccda10061e533b198c9315fdf.addTo(map_aaae38c1034f05a056ace30c58789b5b);
         
     
             L.control.fullscreen(
@@ -443,12 +474,12 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
   "titleCancel": "Keluar layar penuh",
   "forceSeparateButton": false,
 }
-            ).addTo(map_a5f58a28af1e19d63c36ea33cef6bc20);
+            ).addTo(map_aaae38c1034f05a056ace30c58789b5b);
         
 
 (function(){
   var placesData = [{"nama": "The Prayer Park on Fatima Hill", "lat": -8.343028666791067, "lon": 122.97409550805575, "rating": 4.8, "jumlah_rating": 283, "kategori": "Religi", "gambar_url": "https://drive.google.com/thumbnail?id=1Ajd5v8hP9qC1l__UZHTiQyKoPzhB0LcU&sz=w1000", "prediksi_popularitas": "Sangat Populer", "potensi_pengembangan": "Dipertahankan", "cluster": 2, "is_rambu": false}, {"nama": "Taman Reinha Rosari", "lat": -8.34745708171033, "lon": 122.97719634915876, "rating": 4.5, "jumlah_rating": 100, "kategori": "Religi", "gambar_url": "https://drive.google.com/thumbnail?id=1tJWRc_4nlkMMKzmgfCBZsJkdeyw18Lf8&sz=w1000", "prediksi_popularitas": "Sangat Populer", "potensi_pengembangan": "Dipertahankan", "cluster": 0, "is_rambu": false}, {"nama": "HOTEL LESTARI LARANTUKA", "lat": -8.347426231361057, "lon": 122.97558791934667, "rating": 4.0, "jumlah_rating": 1, "kategori": "Umum", "gambar_url": "https://drive.google.com/thumbnail?id=1_Cf1qPnMAY-wO6l9hjYOD5iC8vLTZzd9&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Potensial", "cluster": 3, "is_rambu": false}, {"nama": "Lamaholot Dive & Tour", "lat": -8.347724123210996, "lon": 122.97835858085445, "rating": 5.0, "jumlah_rating": 29, "kategori": "Alam", "gambar_url": "https://drive.google.com/thumbnail?id=1idr_fZ3JRy9iOmGxjn60Hnfz_zQsZ0HH&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Sangat Potensial", "cluster": 0, "is_rambu": false}, {"nama": "Kapela Katolik Tuan Ma Larantuka", "lat": -8.347181087106259, "lon": 122.98114301373509, "rating": 4.8, "jumlah_rating": 64, "kategori": "Religi", "gambar_url": "https://drive.google.com/thumbnail?id=13_y3eKEedcnVkodNGEq_dIT67d0EqVRB&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Sangat Potensial", "cluster": 0, "is_rambu": false}, {"nama": "Kapela St. Yosef", "lat": -8.3464015, "lon": 122.9796639, "rating": 0.0, "jumlah_rating": 0, "kategori": "Religi", "gambar_url": "https://drive.google.com/thumbnail?id=1-qh_xU-wF4kiNlUnHCt21QRmKXBjuwXJ&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Direkomendasikan Kunjungan", "cluster": 1, "is_rambu": false}, {"nama": "Tori Tuan Trewa", "lat": -8.3468414, "lon": 122.979738, "rating": 0.0, "jumlah_rating": 0, "kategori": "Religi", "gambar_url": "https://drive.google.com/thumbnail?id=1ENhLnlrJgFuS84PC1iCo2_Pc4rvBUmAU&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Direkomendasikan Kunjungan", "cluster": 1, "is_rambu": false}, {"nama": "Tori Maestro De Campo", "lat": -8.3473231, "lon": 122.9807666, "rating": 0.0, "jumlah_rating": 0, "kategori": "Religi", "gambar_url": "https://drive.google.com/thumbnail?id=1U8Xekt_SizircAHxxlKDAxaS634kE32H&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Direkomendasikan Kunjungan", "cluster": 1, "is_rambu": false}, {"nama": "Kawasan Perlindungan Terumbu Karang Larantuka", "lat": -8.3480953, "lon": 122.9786131, "rating": 5.0, "jumlah_rating": 43, "kategori": "Alam", "gambar_url": "https://drive.google.com/thumbnail?id=1ScqiYmRaY__4Zvi467_SqNiwQO1NZhFg&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Sangat Potensial", "cluster": 0, "is_rambu": false}, {"nama": "Lapangan Raja Manuk", "lat": -8.3452631, "lon": 122.979399, "rating": 3.8, "jumlah_rating": 6, "kategori": "Umum", "gambar_url": "https://drive.google.com/thumbnail?id=1rZ8tGdJLa1F-60iJ3Gfg6ZLCPGROl_fm&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Direkomendasikan Kunjungan", "cluster": 3, "is_rambu": false}, {"nama": "Pokmaswas", "lat": -8.3478787, "lon": 122.9785611, "rating": 0.0, "jumlah_rating": 0, "kategori": "Umum", "gambar_url": "https://drive.google.com/thumbnail?id=1izO8SbSPMprMyvWGOSvswrh_llnVfJJe&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Direkomendasikan Kunjungan", "cluster": 1, "is_rambu": false}, {"nama": "Rambu Jalur Evakuasi", "lat": -8.34752, "lon": 122.978139, "rating": 0.0, "jumlah_rating": 0, "kategori": "Rambu / Plang", "gambar_url": "https://drive.google.com/thumbnail?id=1qQSuOHSfKCyIJPUYNATwlS9ZQVdKJaBY&sz=w1000", "prediksi_popularitas": "Rambu", "potensi_pengembangan": "Rambu / Plang", "cluster": -1, "is_rambu": true}, {"nama": "Titik Kumpul", "lat": -8.345581, "lon": 122.979894, "rating": 0.0, "jumlah_rating": 0, "kategori": "Rambu / Plang", "gambar_url": "https://drive.google.com/thumbnail?id=18jMl7EadvvvkYObkHgg4ePW4tgxQsFrk&sz=w1000", "prediksi_popularitas": "Rambu", "potensi_pengembangan": "Rambu / Plang", "cluster": -1, "is_rambu": true}, {"nama": "Rambu Peringatan Area Rawan Banjir", "lat": -8.344074, "lon": 122.978567, "rating": 0.0, "jumlah_rating": 0, "kategori": "Rambu / Plang", "gambar_url": "https://drive.google.com/thumbnail?id=1SBsLzvKnRDrQ1AL1BFXM3TVwZqV4igO6&sz=w1000", "prediksi_popularitas": "Rambu", "potensi_pengembangan": "Rambu / Plang", "cluster": -1, "is_rambu": true}];
-  var mapObj = window["map_a5f58a28af1e19d63c36ea33cef6bc20"];
+  var mapObj = window["map_aaae38c1034f05a056ace30c58789b5b"];
 
   var potensiColor = {
     "Sangat Potensial": "#22c55e",
@@ -476,6 +507,7 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
   var clusterPalette = ["#9b59b6", "#16a085", "#e67e22", "#2c3e50", "#f1c40f", "#c0392b"];
 
   var markerLayer = L.layerGroup().addTo(mapObj);
+  var labelLayer = L.layerGroup().addTo(mapObj);
   var heatLayer = null;
   var selectedPin = null;
   var currentMode = "normal";
@@ -491,12 +523,12 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
     search: ""
   };
 
-  // IKON KHUSUS UNTUK RAMBU
+  // IKON KHUSUS UNTUK RAMBU - UKURAN LEBIH KECIL
   var rambuIcon = L.divIcon({
     className: "rambu-marker",
-    html: '<div style="font-size:36px; text-shadow: 0 2px 8px rgba(0,0,0,0.4); line-height:1; text-align:center;">🚧</div>',
-    iconSize: [36, 36],
-    iconAnchor: [18, 36]
+    html: '<div style="font-size:24px; text-shadow: 0 1px 4px rgba(0,0,0,0.3); line-height:1; text-align:center;">🚧</div>',
+    iconSize: [24, 24],
+    iconAnchor: [12, 24]
   });
 
   function radiusFromReview(n){
@@ -533,8 +565,16 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
     iconAnchor: [15, 42]
   });
 
+  // Fungsi untuk membuat label dengan styling
+  function createLabel(place, isRambu) {
+    var className = isRambu ? 'custom-label-rambu' : 'custom-label';
+    var labelText = place.nama.length > 20 ? place.nama.substring(0, 18) + '...' : place.nama;
+    return '<div class="' + className + '">' + labelText + '</div>';
+  }
+
   function renderMarkers(){
     markerLayer.clearLayers();
+    labelLayer.clearLayers();
     
     if (currentMode === "heat") {
       if (heatLayer) { mapObj.removeLayer(heatLayer); heatLayer = null; }
@@ -544,11 +584,21 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
       if (pts.length > 0) {
         heatLayer = L.heatLayer(pts, { radius: 25, blur: 20, maxZoom: 17 }).addTo(mapObj);
       }
-      // Tetap tampilkan rambu sebagai marker terpisah
+      // Tetap tampilkan rambu sebagai marker terpisah + label
       placesData.filter(function(p){ return passesFilter(p) && p.is_rambu; }).forEach(function(place){
         var marker = L.marker([place.lat, place.lon], { icon: rambuIcon });
         marker.on("click", function(){ selectPlace(place); });
         marker.addTo(markerLayer);
+        
+        // Label untuk rambu
+        var labelDiv = L.divIcon({
+          className: '',
+          html: createLabel(place, true),
+          iconSize: [0, 0],
+          iconAnchor: [0, 0]
+        });
+        var labelMarker = L.marker([place.lat + 0.00005, place.lon], { icon: labelDiv, interactive: false });
+        labelMarker.addTo(labelLayer);
       });
       return;
     } else if (heatLayer) {
@@ -561,6 +611,16 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
         var marker = L.marker([place.lat, place.lon], { icon: rambuIcon });
         marker.on("click", function(){ selectPlace(place); });
         marker.addTo(markerLayer);
+        
+        // Label untuk rambu (sedikit di atas marker)
+        var labelDiv = L.divIcon({
+          className: '',
+          html: createLabel(place, true),
+          iconSize: [0, 0],
+          iconAnchor: [0, 0]
+        });
+        var labelMarker = L.marker([place.lat + 0.00005, place.lon], { icon: labelDiv, interactive: false });
+        labelMarker.addTo(labelLayer);
       } else {
         var marker = L.circleMarker([place.lat, place.lon], {
           radius: radiusFromReview(place.jumlah_rating),
@@ -571,6 +631,16 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
         });
         marker.on("click", function(){ selectPlace(place); });
         marker.addTo(markerLayer);
+        
+        // Label untuk wisata (sedikit di atas marker)
+        var labelDiv = L.divIcon({
+          className: '',
+          html: createLabel(place, false),
+          iconSize: [0, 0],
+          iconAnchor: [0, 0]
+        });
+        var labelMarker = L.marker([place.lat + 0.00008, place.lon], { icon: labelDiv, interactive: false });
+        labelMarker.addTo(labelLayer);
       }
     });
   }
@@ -593,7 +663,6 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
       document.getElementById("ic-rating").textContent = "🚧";
       document.getElementById("ic-review").textContent = "(Rambu / Plang)";
       document.getElementById("ic-stars").textContent = "🚧";
-      // Sembunyikan bagian ML
       document.getElementById("ic-popularitas-row").style.display = "none";
       document.getElementById("ic-popularitas-row-value").style.display = "none";
       document.getElementById("ic-potensi-row").style.display = "none";
@@ -607,7 +676,6 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
       var stars = "";
       for (var i = 0; i < 5; i++) stars += (i < full ? "\u2605" : "\u2606");
       document.getElementById("ic-stars").textContent = stars;
-      // Tampilkan bagian ML
       document.getElementById("ic-popularitas-row").style.display = "";
       document.getElementById("ic-popularitas-row-value").style.display = "";
       document.getElementById("ic-potensi-row").style.display = "";

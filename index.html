@@ -20,7 +20,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_327b77bd2c06807f533fa8fcceb72e63 {
+                #map_78c7961b74791e7fe26b68d4908e3e18 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -238,17 +238,17 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
 
   <aside class="sidebar-left">
     <div class="stat-grid">
-      <div class="stat-card"><div class="label">&#128205; Total Wisata</div><div class="value">3</div></div>
-      <div class="stat-card"><div class="label">&#11088; Rata-rata Rating</div><div class="value">4.43</div></div>
-      <div class="stat-card"><div class="label">&#128172; Total Review</div><div class="value">384</div></div>
-      <div class="stat-card"><div class="label">&#128197; Update Terakhir</div><div class="value" style="font-size:13px;">28 Jul 2026  12:41</div></div>
+      <div class="stat-card"><div class="label">&#128205; Total Wisata</div><div class="value">15</div></div>
+      <div class="stat-card"><div class="label">&#11088; Rata-rata Rating</div><div class="value">2.66</div></div>
+      <div class="stat-card"><div class="label">&#128172; Total Review</div><div class="value">526</div></div>
+      <div class="stat-card"><div class="label">&#128197; Update Terakhir</div><div class="value" style="font-size:13px;">02 Aug 2026  21:21</div></div>
     </div>
 
     <div class="section-title">Filter Kategori</div>
     <div class="section-sub">Pilih kategori untuk ditampilkan</div>
     <div class="filter-group" id="filter-kategori">
       <label class="filter-item master" for="kategori-all"><input type="checkbox" id="kategori-all" checked> Pilih Semua</label>
-      <label class="filter-item" for="kategori-religi"><input type="checkbox" id="kategori-religi" value="Religi" checked> Religi</label><label class="filter-item" for="kategori-umum"><input type="checkbox" id="kategori-umum" value="Umum" checked> Umum</label>
+      <label class="filter-item" for="kategori-alam"><input type="checkbox" id="kategori-alam" value="Alam" checked> Alam</label><label class="filter-item" for="kategori-rambu-/-plang"><input type="checkbox" id="kategori-rambu-/-plang" value="Rambu / Plang" checked> Rambu / Plang</label><label class="filter-item" for="kategori-religi"><input type="checkbox" id="kategori-religi" value="Religi" checked> Religi</label><label class="filter-item" for="kategori-umum"><input type="checkbox" id="kategori-umum" value="Umum" checked> Umum</label>
     </div>
 
     <div class="section-title">Filter Prediksi Popularitas (Machine Learning)</div>
@@ -273,7 +273,7 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
     <div class="map-wrap">
       
     
-            <div class="folium-map" id="map_327b77bd2c06807f533fa8fcceb72e63" ></div>
+            <div class="folium-map" id="map_78c7961b74791e7fe26b68d4908e3e18" ></div>
         
 
       <div class="search-box">
@@ -325,12 +325,27 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
         <h3>Jumlah Wisata per Kategori</h3>
         <div class="pie-inner">
           <canvas id="pie-chart"></canvas>
-          <div class="legend-list"><div class="legend-row"><span class="legend-dot" style="background:#8e44ad"></span><span class="legend-label">Religi</span><span class="legend-value">2 (66.7%)</span></div><div class="legend-row"><span class="legend-dot" style="background:#3498db"></span><span class="legend-label">Umum</span><span class="legend-value">1 (33.3%)</span></div></div>
+          <div class="legend-list"><div class="legend-row"><span class="legend-dot" style="background:#8e44ad"></span><span class="legend-label">Religi</span><span class="legend-value">7 (46.7%)</span></div><div class="legend-row"><span class="legend-dot" style="background:#3498db"></span><span class="legend-label">Umum</span><span class="legend-value">3 (20.0%)</span></div><div class="legend-row"><span class="legend-dot" style="background:#f39c12"></span><span class="legend-label">Rambu / Plang</span><span class="legend-value">3 (20.0%)</span></div><div class="legend-row"><span class="legend-dot" style="background:#27ae60"></span><span class="legend-label">Alam</span><span class="legend-value">2 (13.3%)</span></div></div>
         </div>
       </div>
       <div class="chart-card">
         <h3>Top 5 Rating Tertinggi</h3>
         
+            <div class="top5-row">
+                <span>Lamaholot Dive & Tour</span>
+                <span class="top5-value">&#9733; 5.0</span>
+            </div>
+            
+            <div class="top5-row">
+                <span>Kawasan Perlindungan Terumbu Karang Larantuka</span>
+                <span class="top5-value">&#9733; 5.0</span>
+            </div>
+            
+            <div class="top5-row">
+                <span>Kapela Katolik Tuan Ma Larantuka</span>
+                <span class="top5-value">&#9733; 4.8</span>
+            </div>
+            
             <div class="top5-row">
                 <span>The Prayer Park on Fatima Hill</span>
                 <span class="top5-value">&#9733; 4.8</span>
@@ -341,28 +356,33 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
                 <span class="top5-value">&#9733; 4.5</span>
             </div>
             
-            <div class="top5-row">
-                <span>HOTEL LESTARI LARANTUKA</span>
-                <span class="top5-value">&#9733; 4.0</span>
-            </div>
-            
       </div>
       <div class="chart-card">
         <h3>Direkomendasikan</h3>
         
             <div class="top5-row">
                 <span class="top5-rank">1.</span>
-                <span class="top5-name">HOTEL LESTARI LARANTUKA</span>
+                <span class="top5-name">Tori Tuan Tersalib</span>
             </div>
             
             <div class="top5-row">
                 <span class="top5-rank">2.</span>
-                <span class="top5-name">Taman Reinha Rosari</span>
+                <span class="top5-name">Pokmaswas</span>
             </div>
             
             <div class="top5-row">
                 <span class="top5-rank">3.</span>
-                <span class="top5-name">The Prayer Park on Fatima Hill</span>
+                <span class="top5-name">Lapangan Raja Manuk</span>
+            </div>
+            
+            <div class="top5-row">
+                <span class="top5-rank">4.</span>
+                <span class="top5-name">Kawasan Perlindungan Terumbu Karang Larantuka</span>
+            </div>
+            
+            <div class="top5-row">
+                <span class="top5-rank">5.</span>
+                <span class="top5-name">Tori Maestro De Campo</span>
             </div>
             
       </div>
@@ -409,10 +429,10 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
 <script>
 
     
-            var map_327b77bd2c06807f533fa8fcceb72e63 = L.map(
-                "map_327b77bd2c06807f533fa8fcceb72e63",
+            var map_78c7961b74791e7fe26b68d4908e3e18 = L.map(
+                "map_78c7961b74791e7fe26b68d4908e3e18",
                 {
-                    center: [-8.34597065995415, 122.97562659218706],
+                    center: [-8.346588786011981, 122.97862405141008],
                     crs: L.CRS.EPSG3857,
                     ...{
   "zoom": 15,
@@ -427,7 +447,7 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
 
         
     
-            var tile_layer_10cd3257a29651c2268ca15cee438e06 = L.tileLayer(
+            var tile_layer_cece669e80ab1ac96745795f1a996dda = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -444,7 +464,7 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
             );
         
     
-            tile_layer_10cd3257a29651c2268ca15cee438e06.addTo(map_327b77bd2c06807f533fa8fcceb72e63);
+            tile_layer_cece669e80ab1ac96745795f1a996dda.addTo(map_78c7961b74791e7fe26b68d4908e3e18);
         
     
             L.control.fullscreen(
@@ -454,12 +474,12 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
   "titleCancel": "Keluar layar penuh",
   "forceSeparateButton": false,
 }
-            ).addTo(map_327b77bd2c06807f533fa8fcceb72e63);
+            ).addTo(map_78c7961b74791e7fe26b68d4908e3e18);
         
 
 (function(){
-  var placesData = [{"nama": "The Prayer Park on Fatima Hill", "lat": -8.343028666791067, "lon": 122.97409550805575, "rating": 4.8, "jumlah_rating": 283, "kategori": "Religi", "gambar_url": "https://drive.google.com/thumbnail?id=1Ajd5v8hP9qC1l__UZHTiQyKoPzhB0LcU&sz=w1000", "prediksi_popularitas": "Sangat Populer", "potensi_pengembangan": "Dipertahankan", "cluster": 2, "is_rambu": false}, {"nama": "Taman Reinha Rosari", "lat": -8.34745708171033, "lon": 122.97719634915876, "rating": 4.5, "jumlah_rating": 100, "kategori": "Religi", "gambar_url": "https://drive.google.com/thumbnail?id=1tJWRc_4nlkMMKzmgfCBZsJkdeyw18Lf8&sz=w1000", "prediksi_popularitas": "Sangat Populer", "potensi_pengembangan": "Dipertahankan", "cluster": 0, "is_rambu": false}, {"nama": "HOTEL LESTARI LARANTUKA", "lat": -8.347426231361057, "lon": 122.97558791934667, "rating": 4.0, "jumlah_rating": 1, "kategori": "Umum", "gambar_url": "https://drive.google.com/thumbnail?id=1_Cf1qPnMAY-wO6l9hjYOD5iC8vLTZzd9&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Potensial", "cluster": 1, "is_rambu": false}];
-  var mapObj = window["map_327b77bd2c06807f533fa8fcceb72e63"];
+  var placesData = [{"nama": "The Prayer Park on Fatima Hill", "lat": -8.343028666791067, "lon": 122.97409550805575, "rating": 4.8, "jumlah_rating": 283, "kategori": "Religi", "gambar_url": "https://drive.google.com/thumbnail?id=1Ajd5v8hP9qC1l__UZHTiQyKoPzhB0LcU&sz=w1000", "prediksi_popularitas": "Sangat Populer", "potensi_pengembangan": "Dipertahankan", "cluster": 2, "is_rambu": false}, {"nama": "Taman Reinha Rosari", "lat": -8.34745708171033, "lon": 122.97719634915876, "rating": 4.5, "jumlah_rating": 100, "kategori": "Religi", "gambar_url": "https://drive.google.com/thumbnail?id=1tJWRc_4nlkMMKzmgfCBZsJkdeyw18Lf8&sz=w1000", "prediksi_popularitas": "Sangat Populer", "potensi_pengembangan": "Dipertahankan", "cluster": 0, "is_rambu": false}, {"nama": "HOTEL LESTARI LARANTUKA", "lat": -8.347426231361057, "lon": 122.97558791934667, "rating": 4.0, "jumlah_rating": 1, "kategori": "Umum", "gambar_url": "https://drive.google.com/thumbnail?id=1_Cf1qPnMAY-wO6l9hjYOD5iC8vLTZzd9&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Potensial", "cluster": 3, "is_rambu": false}, {"nama": "Lamaholot Dive & Tour", "lat": -8.347724123210996, "lon": 122.97835858085445, "rating": 5.0, "jumlah_rating": 29, "kategori": "Alam", "gambar_url": "https://drive.google.com/thumbnail?id=1idr_fZ3JRy9iOmGxjn60Hnfz_zQsZ0HH&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Sangat Potensial", "cluster": 0, "is_rambu": false}, {"nama": "Kapela Katolik Tuan Ma Larantuka", "lat": -8.347181087106259, "lon": 122.98114301373509, "rating": 4.8, "jumlah_rating": 64, "kategori": "Religi", "gambar_url": "https://drive.google.com/thumbnail?id=13_y3eKEedcnVkodNGEq_dIT67d0EqVRB&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Sangat Potensial", "cluster": 0, "is_rambu": false}, {"nama": "Kapela St. Yosef", "lat": -8.3464015, "lon": 122.9796639, "rating": 0.0, "jumlah_rating": 0, "kategori": "Religi", "gambar_url": "https://drive.google.com/thumbnail?id=1-qh_xU-wF4kiNlUnHCt21QRmKXBjuwXJ&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Direkomendasikan Kunjungan", "cluster": 1, "is_rambu": false}, {"nama": "Tori Tuan Trewa", "lat": -8.3468414, "lon": 122.979738, "rating": 0.0, "jumlah_rating": 0, "kategori": "Religi", "gambar_url": "https://drive.google.com/thumbnail?id=1ENhLnlrJgFuS84PC1iCo2_Pc4rvBUmAU&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Direkomendasikan Kunjungan", "cluster": 1, "is_rambu": false}, {"nama": "Tori Maestro De Campo", "lat": -8.3473231, "lon": 122.9807666, "rating": 0.0, "jumlah_rating": 0, "kategori": "Religi", "gambar_url": "https://drive.google.com/thumbnail?id=1U8Xekt_SizircAHxxlKDAxaS634kE32H&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Direkomendasikan Kunjungan", "cluster": 1, "is_rambu": false}, {"nama": "Kawasan Perlindungan Terumbu Karang Larantuka", "lat": -8.3480953, "lon": 122.9786131, "rating": 5.0, "jumlah_rating": 43, "kategori": "Alam", "gambar_url": "https://drive.google.com/thumbnail?id=1ScqiYmRaY__4Zvi467_SqNiwQO1NZhFg&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Sangat Potensial", "cluster": 0, "is_rambu": false}, {"nama": "Lapangan Raja Manuk", "lat": -8.3452631, "lon": 122.979399, "rating": 3.8, "jumlah_rating": 6, "kategori": "Umum", "gambar_url": "https://drive.google.com/thumbnail?id=1rZ8tGdJLa1F-60iJ3Gfg6ZLCPGROl_fm&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Direkomendasikan Kunjungan", "cluster": 3, "is_rambu": false}, {"nama": "Pokmaswas", "lat": -8.3478787, "lon": 122.9785611, "rating": 0.0, "jumlah_rating": 0, "kategori": "Umum", "gambar_url": "https://drive.google.com/thumbnail?id=1izO8SbSPMprMyvWGOSvswrh_llnVfJJe&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Direkomendasikan Kunjungan", "cluster": 1, "is_rambu": false}, {"nama": "Tori Tuan Tersalib", "lat": -8.3470365, "lon": 122.9796377, "rating": 0.0, "jumlah_rating": 0, "kategori": "Religi", "gambar_url": "https://drive.google.com/thumbnail?id=1ZzcX0R_GdAMJQEUcxkmtXGPQANlvCEp7&sz=w1000", "prediksi_popularitas": "Populer", "potensi_pengembangan": "Direkomendasikan Kunjungan", "cluster": 1, "is_rambu": false}, {"nama": "Rambu Jalur Evakuasi", "lat": -8.34752, "lon": 122.978139, "rating": 0.0, "jumlah_rating": 0, "kategori": "Rambu / Plang", "gambar_url": "https://drive.google.com/thumbnail?id=1qQSuOHSfKCyIJPUYNATwlS9ZQVdKJaBY&sz=w1000", "prediksi_popularitas": "Rambu", "potensi_pengembangan": "Rambu / Plang", "cluster": -1, "is_rambu": true}, {"nama": "Titik Kumpul", "lat": -8.345581, "lon": 122.979894, "rating": 0.0, "jumlah_rating": 0, "kategori": "Rambu / Plang", "gambar_url": "https://drive.google.com/thumbnail?id=18jMl7EadvvvkYObkHgg4ePW4tgxQsFrk&sz=w1000", "prediksi_popularitas": "Rambu", "potensi_pengembangan": "Rambu / Plang", "cluster": -1, "is_rambu": true}, {"nama": "Rambu Peringatan Area Rawan Banjir", "lat": -8.344074, "lon": 122.978567, "rating": 0.0, "jumlah_rating": 0, "kategori": "Rambu / Plang", "gambar_url": "https://drive.google.com/thumbnail?id=1SBsLzvKnRDrQ1AL1BFXM3TVwZqV4igO6&sz=w1000", "prediksi_popularitas": "Rambu", "potensi_pengembangan": "Rambu / Plang", "cluster": -1, "is_rambu": true}];
+  var mapObj = window["map_78c7961b74791e7fe26b68d4908e3e18"];
 
   var potensiColor = {
     "Sangat Potensial": "#22c55e",
@@ -759,12 +779,12 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);
   document.getElementById("zoom-in").addEventListener("click", function(){ mapObj.zoomIn(); });
   document.getElementById("zoom-out").addEventListener("click", function(){ mapObj.zoomOut(); });
   document.getElementById("zoom-reset").addEventListener("click", function(){
-    mapObj.setView([-8.34597065995415, 122.97562659218706], 15);
+    mapObj.setView([-8.346588786011981, 122.97862405141008], 15);
   });
 
   renderMarkers();
 
-  var kategoriCounts = {"Religi": 2, "Umum": 1};
+  var kategoriCounts = {"Religi": 7, "Umum": 3, "Rambu / Plang": 3, "Alam": 2};
   var pieCanvas = document.getElementById("pie-chart");
   if (pieCanvas && window.Chart) {
     new Chart(pieCanvas.getContext("2d"), {
